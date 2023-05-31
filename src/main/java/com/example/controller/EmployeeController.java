@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.entity.Employee;
@@ -27,4 +28,11 @@ public class EmployeeController {
         model.addAttribute("employees", employees);
         return "employee/list";
     }
+
+	@GetMapping("/find/{employeeId}")
+	public String showEmployee(@PathVariable Integer employeeId, Model model) {
+		Employee employee = this.employeeService.findEmployee(employeeId);
+		model.addAttribute("employee", employee);
+		return "employee/data";
+	}
 }
