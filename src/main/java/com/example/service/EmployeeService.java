@@ -19,7 +19,7 @@ public class EmployeeService {
 	}
 
 	public List<Employee> findAllEmployee(){
-		return this.employeeRepository.findAll();
+		return this.employeeRepository.findAllByOrderByIdAsc();
 	}
 
 	public Employee findEmployee(Integer employeeId) {

@@ -12,6 +12,8 @@ import com.example.entity.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
+	public List<Employee> findAllByOrderByIdAsc();
+	
 	public List<Employee> findByName(String name);
 
 	public Optional<Employee> findFirstByNameOrderByIdAsc(String name);
