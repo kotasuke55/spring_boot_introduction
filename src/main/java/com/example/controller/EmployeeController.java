@@ -16,15 +16,15 @@ public class EmployeeController {
 
 	private final EmployeeService employeeService;
 
-	@Autowired
-	public EmployeeController(EmployeeService employeeService) {
-		this.employeeService = employeeService;
-	}
+    @Autowired
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
 	@GetMapping("/list")
-	public String showList(Model model) {
-		List<Employee> employees = this.employeeService.findAllEmployee();
-		model.addAttribute("employees", employees);
-		return "employee/list";
-	}
+    public String showList(Model model) {
+        List<Employee> employees = this.employeeService.findAllEmployee();
+        model.addAttribute("employees", employees);
+        return "employee/list";
+    }
 }
