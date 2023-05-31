@@ -49,4 +49,19 @@ public class EmployeeController {
 		this.employeeService.insert(name, department);
 		return "redirect:/employee/list";
 	}
+
+	@GetMapping("/update/{employeeId}")
+	public String editEmployee(@PathVariable Integer employeeId
+							 , @RequestParam("name") String name
+							 , @RequestParam("department") String department) {
+		this.employeeService.update(employeeId, name, department);
+		return "redirect:/employee/list";
+	}
+
+	@GetMapping("/delete/{employeeId}")
+	public String deleteEmployee(@PathVariable Integer employeeId) {
+		this.employeeService.delete(employeeId);
+		return "redirect:/employee/list";
+	}
+
 }
