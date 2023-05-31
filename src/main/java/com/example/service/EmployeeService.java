@@ -31,4 +31,11 @@ public class EmployeeService {
 	public List<Employee> findByName(String name) {
 		return this.employeeRepository.findByName(name);
 	}
+
+	public Employee insert(String name, String department) {
+		Employee employee = new Employee();
+		employee.setName(name);
+		employee.setDepartment(department);
+		return this.employeeRepository.save(employee);
+	}
 }
