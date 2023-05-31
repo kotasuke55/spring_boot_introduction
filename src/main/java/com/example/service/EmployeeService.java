@@ -47,4 +47,8 @@ public class EmployeeService {
 		employee.setDepartment(department);
 		return this.employeeRepository.save(employee);
 	}
+
+	public void delete(Integer id) {
+		this.employeeRepository.deleteById(id);
+	}
 }
